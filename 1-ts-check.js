@@ -1,3 +1,5 @@
+//@ts-check
+
 Object.defineProperty(window, 'MySweetApp', {value: 'v1.0.0', readonly: false});
 
 
@@ -7,6 +9,7 @@ function deliveryMethod() {
 }
 
 function shipWeight() {
+    //@ts-ignore
     return parseInt((document.getElementById('weight')).innerHTML)
 }
 

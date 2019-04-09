@@ -1,0 +1,23 @@
+{
+  "name": "ts-starting",
+  "version": "1.0.0",
+  "description": "- человеческий фактор  - нужен инстурмент, чтобы облегчить проверку",
+  "main": "1-ts-check.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ennett50/ts-starting.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ennett50/ts-starting/issues"
+  },
+  "homepage": "https://github.com/ennett50/ts-starting#readme",
+  "devDependencies": {
+    "typescript": "^3.4.2"
+  }
+}

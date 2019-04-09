@@ -1,5 +1,3 @@
-//@ts-check
-
 Object.defineProperty(window, 'MySweetApp', {value: 'v1.0.0', readonly: false});
 
 
@@ -36,3 +34,6 @@ function setUpdates(email) {
         sendEmail(email.trim());
     }
 }
+
+/** @type{Array.<number>} **/
+let a = ['abc'];

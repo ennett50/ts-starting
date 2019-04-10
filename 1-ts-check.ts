@@ -1,17 +1,15 @@
 Object.defineProperty(window, 'MySweetApp', {
-    value: 'v1.0.0',
-    writable: true,
+  value: 'v1.0.0',
+  writable: true,
 });
 
-
 function deliveryMethod(): string {
-    //TODO
-    return 'overnight';
+  return 'overnight';
 }
 
 function shipWeight() {
-    const element: HTMLDivElement = document.getElementById('weight') as HTMLDivElement;
-    return parseInt((element).innerHTML)
+  const element: HTMLDivElement = document.getElementById('weight') as HTMLDivElement;
+  return parseInt((element).innerHTML, 10);
 }
 
 /**
@@ -20,20 +18,20 @@ function shipWeight() {
  */
 function setUpdates(email: string | string[]): void {
 
-    function sendEmail(address: string) {
+  function sendEmail(address: string) {
 
-        console.log(`Shipping to ${address} via ${deliveryMethod() || 'standart'} delivery`);
+    console.log(`Shipping to ${address} via ${deliveryMethod() || 'standart'} delivery`);
 
-        if (shipWeight() > 100) {
-            console.log('Warning: oversize package');
-        }
+    if (shipWeight() > 100) {
+      console.log('Warning: oversize package');
     }
+  }
 
-    if (Array.isArray(email)) {
-        email.forEach((val:string, _idx: number) => {
-            sendEmail(val.trim());
-        })
-    } else {
-        sendEmail(email.trim());
-    }
+  if (Array.isArray(email)) {
+    email.forEach((val: string, _INDEX: number) => {
+      sendEmail(val.trim());
+    });
+  } else {
+    sendEmail(email.trim());
+  }
 }

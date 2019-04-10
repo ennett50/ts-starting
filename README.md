@@ -52,3 +52,21 @@ npx tsc -p tsconfig.json --locale ru
 
 Когда ошибка, файл все равно компилируется. 
 Для страховки есть опция `"noEmitOnError": true,`
+
+## tslint
+
+Аналог eslint для ts (прочитать статью про отмирание, так ли это (ссылка)[https://medium.com/palantir/tslint-in-2019-1a144c2317a9])
+https://github.com/progre/tslint-config-airbnb
+
+```
+npm add tslint -D
+npx tslint --init
+```
+
+Посмотреть конфиги для IDE
+
+Работы свыводом на лету:
+```
+npm add ts-node
+npx ts-node example.ts
+```

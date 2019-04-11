@@ -25,6 +25,7 @@ npm add typescript -D
 ## Проверка файлов
 
 чтобы не писать везде `//@ts-check`, можно использовать в конфиге опцию `"checkJs": true`
+
 `//@ts-nocheck` - вначале файла, чтобы выключить проверку
 
 Также идет проверка из комментариев JSDoc
@@ -51,12 +52,13 @@ npx tsc -p tsconfig.json --locale ru
 ```
 
 Когда ошибка, файл все равно компилируется. 
+
 Для страховки есть опция `"noEmitOnError": true,`
 
 ## tslint
 
-Аналог eslint для ts (прочитать статью про отмирание, так ли это (ссылка)[https://medium.com/palantir/tslint-in-2019-1a144c2317a9])
-https://github.com/progre/tslint-config-airbnb
+Аналог eslint для ts (прочитать статью про отмирание, так ли это [ссылка](https://medium.com/palantir/tslint-in-2019-1a144c2317a9)
+[tslint-config-airbnb](https://github.com/progre/tslint-config-airbnb)
 
 ```
 npm add tslint -D

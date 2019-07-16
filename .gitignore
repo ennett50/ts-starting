@@ -85,4 +85,4 @@ nb-configuration.xml
 .DS_Store
 
 # For typescript
-**/*.js
+old/*.js

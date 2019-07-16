@@ -93,3 +93,12 @@ npx ts-node example.ts
 чтобы при компиляции не было дублей wrapper, чтобы правильно минифицировать. Просто подключается helper
 
 ## Webpack
+
+Ставим зависимости:
+
+```
+npm add webpack webpack-cli webpack-dev-server ts-loader html-webpack-plugin
+
+```
+
+Добавляем обычный `webpack` конфиг 

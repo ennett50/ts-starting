@@ -130,3 +130,33 @@
 //
 // let num: Digits = 0;
 
+let anyType: any = {};
+anyType = 1;
+anyType['some_property'] = 5;
+anyType();
+
+let anyType1: unknown = {};
+anyType1 = 1;
+anyType1['some_property'] = 5;
+anyType1();
+
+let objType: Object = {};
+objType.a = 1;
+objType = 1;
+objType();
+
+let z : Object | null = 1;
+Object.create(z);
+
+let objType1: object = {};
+objType1.a = 1;
+objType1 = 1;
+objType1();
+
+let z1 : object | null = 1; // ошибка, все верно
+Object.create(z1);
+
+let voidType:void = undefined; // !== null - так как в конфиге стоит strict null check
+
+function fn() : void {} // вернется undefined
+

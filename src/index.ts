@@ -94,11 +94,20 @@ function fibanacci(n:bigint) {
   return result;
 }
 
-const key1 : symbol = Symbol('key1');
+const key1 : unique symbol = Symbol('key1');
 const key2 : symbol = Symbol('key2');
+const key3 : symbol = Symbol('key3');
 
 const strictObject : {[ key1: string] : number | string} = {
   [key1] : 100,
   [key2] : 'hi',
 };
 
+let a1 = strictObject[key1];  // symbol не может использоваться для индекса => unique symbol
+
+function fn(value: typeof key1): void {
+  // если не unique symbol, то можно передать все что угодно
+  // заменяем
+}
+
+fn(key1);

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ennett50/ts-starting#readme",
   "devDependencies": {
+    "@types/jquery": "^3.3.30",
     "tslint": "^5.15.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.4.2"

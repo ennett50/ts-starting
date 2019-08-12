@@ -130,33 +130,104 @@
 //
 // let num: Digits = 0;
 
-let anyType: any = {};
-anyType = 1;
-anyType['some_property'] = 5;
-anyType();
+// let anyType: any = {};
+// anyType = 1;
+// anyType['some_property'] = 5;
+// anyType();
+//
+// let anyType1: unknown = {};
+// anyType1 = 1;
+// anyType1['some_property'] = 5;
+// anyType1();
+//
+// let objType: Object = {};
+// objType.a = 1;
+// objType = 1;
+// objType();
+//
+// let z : Object | null = 1;
+// Object.create(z);
+//
+// let objType1: object = {};
+// objType1.a = 1;
+// objType1 = 1;
+// objType1();
+//
+// let z1 : object | null = 1; // ошибка, все верно
+// Object.create(z1);
+//
+// let voidType:void = undefined; // !== null - так как в конфиге стоит strict null check
+//
+// function fn() : void {} // вернется undefined
 
-let anyType1: unknown = {};
-anyType1 = 1;
-anyType1['some_property'] = 5;
-anyType1();
 
-let objType: Object = {};
-objType.a = 1;
-objType = 1;
-objType();
+let user : {
+  readonly firstName: string;
+  age?: number;
+} = {
+  firstName: 'Igor',
+  age: 34,
+};
 
-let z : Object | null = 1;
-Object.create(z);
+user.firstName = 'Oleg';
 
-let objType1: object = {};
-objType1.a = 1;
-objType1 = 1;
-objType1();
+let key: keyof (typeof user); // 'firstName' || 'age'
 
-let z1 : object | null = 1; // ошибка, все верно
-Object.create(z1);
+key = 'age';
+key = 'gender';
 
-let voidType:void = undefined; // !== null - так как в конфиге стоит strict null check
+let firstNameType : (typeof user)['firstName'] = 1;
 
-function fn() : void {} // вернется undefined
+type TACCOUNT = {
+  readonly firstName: string;
+  age?: number;
+};
 
+// let arr: number[] = [1, 2, 3, 4]
+
+let arr: TACCOUNT[] = [{
+  firstName: 'Igor',
+  age: 34,
+}];
+
+let arr2: (typeof user)[] = [{
+  firstName: 'Igor',
+  age: 34,
+}];
+
+let arr3: number[] = [1, 2, 3, 4];
+arr3[1000] = 1;
+arr3.push(1);
+
+let arr4: readonly  number[] = [1, 2, 3, 4]; // `let arr4: ReadonlyArray<number> = [1, 2, 3, 4];`
+arr4[1000] = 1;
+arr4.push(1);
+
+let tupleArr:[number, typeof user] = [1, { firstName: 'Igor' }];
+tupleArr[1000] = 1;
+tupleArr.push(1); // readonly решает эту проблему
+
+let a : string | number = 1;
+let b : number = a; // не может разобраться
+
+function fb(event: KeyboardEvent) {
+  let el = event.target;  // нет нужных вещей в интерфйеск
+  el.value; // нет подсказки, если посмотреть интерфейс
+}
+
+function fb2(event: KeyboardEvent) {
+  let el = event.target as HTMLInputElement;
+  // ts говорите, что я понимаюб ты определил тип, но я тебе дам уточнее наверняка
+  el.value;
+}
+
+// новые утверждения в ts
+let x = 10 as const;
+x = 22;
+
+let user1 = { firstName: 'Igor' } as const; // readonly олжен сделать
+user1.firstName = 'Qwerty';
+
+let y = [1, 2] as const;
+y[100] = 11;
+y.push();

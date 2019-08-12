@@ -213,3 +213,31 @@ Object.create(z);
 для других разрабов
 
 ##Объектные типы
+Модификатор readonly и опциональности, примерно как константа
+
+На лету выхватить типы ключей
+`keyof`  - ключи, которые указали, другие - нет. ключи к строковому литеральному типу 
+
+Обращение по индексу
+
+`(typeof user)['firstName']`
+
+типы - исопртить из какого-то файла или настроить в конфиге из какой папки. 
+
+Массивы
+`let arr: number[] = [1,2,3,4]`
+
+Readonly
+`let arr3: ReadonlyArray<number> = [1, 2, 3, 4];` - через интерфейс
+` readonly  number[]` - литеральный вид
+
+строгие массивы
+`let tupleArr:[number, typeof user] = [1, { firstName: 'Igor' }];`
+
+новые утверждения в ts
+```javascript
+let x = 10 as const;
+let user1 = { firstName: 'Igor' } as const;
+let y = [1, 2] as const;
+```
+

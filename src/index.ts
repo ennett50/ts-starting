@@ -241,36 +241,69 @@
 //
 // }
 
-type TStop = {
-  stop: boolean
+// type TStop = {
+//   stop: boolean
+// }
+//
+// interface IMover {
+//   move(): void;
+//   // move(): this; // возвращаю контекст данного класса
+//
+//   getStatus(): { speed: number };
+// }
+//
+// interface IShaker {
+//   shake(): void;
+//
+//   getStatus(): { frequence: number };
+// }
+//
+// interface IMoveShake extends IMover, IShaker, TStop { // множественное наследование интерфейсов
+//   getStatus(): {
+//     speed: number,
+//     frequence: number,
+//   };
+// }
+//
+// interface IBase {
+//   id: number;
+// }
+//
+// let base1: IBase = { id: 23, name: 'Igor' };
+//
+// interface IBase {
+//   name: string;
+// }
+
+interface IAccount<T> { // T - параметры для типов
+  id: T;
+  info: string[];
 }
 
-interface IMover {
-  move(): void;
-  // move(): this; // возвращаю контекст данного класса
+let user: IAccount<string> = {
+  id: 1,
+};
 
-  getStatus(): { speed: number };
+let admin: IAccount<number>;
+
+interface IAccount1<someProp = string, U = string> {
+  id: someProp;
+  info: U[];
 }
 
-interface IShaker {
-  shake(): void;
+let admin1: IAccount1<number, number> = {
+  id: 1,
+  info: [1, 2, 3],
+};
 
-  getStatus(): { frequence: number };
+type TA = {
+  id: number,
+  name: string,
+};
+
+interface IA<T extends TA> {
+  someProp : T;
 }
 
-interface IMoveShake extends IMover, IShaker, TStop { // множественное наследование интерфейсов
-  getStatus(): {
-    speed: number,
-    frequence: number,
-  };
-}
-
-interface IBase {
-  id: number;
-}
-
-let base1: IBase = { id: 23, name: 'Igor' };
-
-interface IBase {
-  name: string;
-}
+let user1 : IA<{id: number, female: boolean}>;
+let user2 : IA<{id: number, name: string, female: boolean}>;

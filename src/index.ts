@@ -160,74 +160,117 @@
 //
 // function fn() : void {} // вернется undefined
 
+//
+// let user : {
+//   readonly firstName: string;
+//   age?: number;
+// } = {
+//   firstName: 'Igor',
+//   age: 34,
+// };
+//
+// user.firstName = 'Oleg';
+//
+// let key: keyof (typeof user); // 'firstName' || 'age'
+//
+// key = 'age';
+// key = 'gender';
+//
+// let firstNameType : (typeof user)['firstName'] = 1;
+//
+// type TACCOUNT = {
+//   readonly firstName: string;
+//   age?: number;
+// };
+//
+// // let arr: number[] = [1, 2, 3, 4]
+//
+// let arr: TACCOUNT[] = [{
+//   firstName: 'Igor',
+//   age: 34,
+// }];
+//
+// let arr2: (typeof user)[] = [{
+//   firstName: 'Igor',
+//   age: 34,
+// }];
+//
+// let arr3: number[] = [1, 2, 3, 4];
+// arr3[1000] = 1;
+// arr3.push(1);
+//
+// let arr4: readonly  number[] = [1, 2, 3, 4]; // `let arr4: ReadonlyArray<number> = [1, 2, 3, 4];`
+// arr4[1000] = 1;
+// arr4.push(1);
+//
+// let tupleArr:[number, typeof user] = [1, { firstName: 'Igor' }];
+// tupleArr[1000] = 1;
+// tupleArr.push(1); // readonly решает эту проблему
+//
+// let a : string | number = 1;
+// let b : number = a; // не может разобраться
+//
+// function fb(event: KeyboardEvent) {
+//   let el = event.target;  // нет нужных вещей в интерфйеск
+//   el.value; // нет подсказки, если посмотреть интерфейс
+// }
+//
+// function fb2(event: KeyboardEvent) {
+//   let el = event.target as HTMLInputElement;
+//   // ts говорите, что я понимаюб ты определил тип, но я тебе дам уточнее наверняка
+//   el.value;
+// }
+//
+// // новые утверждения в ts
+// let x = 10 as const;
+// x = 22;
+//
+// let user1 = { firstName: 'Igor' } as const; // readonly олжен сделать
+// user1.firstName = 'Qwerty';
+//
+// let y = [1, 2] as const;
+// y[100] = 11;
+// y.push();
 
-let user : {
-  readonly firstName: string;
-  age?: number;
-} = {
-  firstName: 'Igor',
-  age: 34,
-};
+// interface IAccount {
+//   firstName: string,
+// }
+//
+// class Account implements IAccount {
+//   public firstName: string = 'Igor';
+//
+// }
 
-user.firstName = 'Oleg';
-
-let key: keyof (typeof user); // 'firstName' || 'age'
-
-key = 'age';
-key = 'gender';
-
-let firstNameType : (typeof user)['firstName'] = 1;
-
-type TACCOUNT = {
-  readonly firstName: string;
-  age?: number;
-};
-
-// let arr: number[] = [1, 2, 3, 4]
-
-let arr: TACCOUNT[] = [{
-  firstName: 'Igor',
-  age: 34,
-}];
-
-let arr2: (typeof user)[] = [{
-  firstName: 'Igor',
-  age: 34,
-}];
-
-let arr3: number[] = [1, 2, 3, 4];
-arr3[1000] = 1;
-arr3.push(1);
-
-let arr4: readonly  number[] = [1, 2, 3, 4]; // `let arr4: ReadonlyArray<number> = [1, 2, 3, 4];`
-arr4[1000] = 1;
-arr4.push(1);
-
-let tupleArr:[number, typeof user] = [1, { firstName: 'Igor' }];
-tupleArr[1000] = 1;
-tupleArr.push(1); // readonly решает эту проблему
-
-let a : string | number = 1;
-let b : number = a; // не может разобраться
-
-function fb(event: KeyboardEvent) {
-  let el = event.target;  // нет нужных вещей в интерфйеск
-  el.value; // нет подсказки, если посмотреть интерфейс
+type TStop = {
+  stop: boolean
 }
 
-function fb2(event: KeyboardEvent) {
-  let el = event.target as HTMLInputElement;
-  // ts говорите, что я понимаюб ты определил тип, но я тебе дам уточнее наверняка
-  el.value;
+interface IMover {
+  move(): void;
+  // move(): this; // возвращаю контекст данного класса
+
+  getStatus(): { speed: number };
 }
 
-// новые утверждения в ts
-let x = 10 as const;
-x = 22;
+interface IShaker {
+  shake(): void;
 
-let user1 = { firstName: 'Igor' } as const; // readonly олжен сделать
-user1.firstName = 'Qwerty';
+  getStatus(): { frequence: number };
+}
 
-let y = [1, 2] as const;
-y[100] = 11;
-y.push();
+interface IMoveShake extends IMover, IShaker, TStop { // множественное наследование интерфейсов
+  getStatus(): {
+    speed: number,
+    frequence: number,
+  };
+}
+
+interface IBase {
+  id: number;
+}
+
+let base1: IBase = { id: 23, name: 'Igor' };
+
+interface IBase {
+  name: string;
+}

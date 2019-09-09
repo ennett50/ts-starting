@@ -275,35 +275,58 @@
 //   name: string;
 // }
 
-interface IAccount<T> { // T - параметры для типов
-  id: T;
-  info: string[];
+// interface IAccount<T> { // T - параметры для типов
+//   id: T;
+//   info: string[];
+// }
+//
+// let user: IAccount<string> = {
+//   id: 1,
+// };
+//
+// let admin: IAccount<number>;
+//
+// interface IAccount1<someProp = string, U = string> {
+//   id: someProp;
+//   info: U[];
+// }
+//
+// let admin1: IAccount1<number, number> = {
+//   id: 1,
+//   info: [1, 2, 3],
+// };
+//
+// type TA = {
+//   id: number,
+//   name: string,
+// };
+//
+// interface IA<T extends TA> {
+//   someProp : T;
+// }
+//
+// let user1 : IA<{id: number, female: boolean}>;
+// let user2 : IA<{id: number, name: string, female: boolean}>;
+
+interface IPerson {
+  firstName: string;
+  age: number;
 }
 
-let user: IAccount<string> = {
-  id: 1,
+type ReadOnly<T> = {
+  readonly [P in keyof T] : T[P]
 };
 
-let admin: IAccount<number>;
-
-interface IAccount1<someProp = string, U = string> {
-  id: someProp;
-  info: U[];
-}
-
-let admin1: IAccount1<number, number> = {
-  id: 1,
-  info: [1, 2, 3],
+let user: ReadOnly<IPerson> = {
+  firstName: 'Igor',
 };
 
-type TA = {
-  id: number,
-  name: string,
+user.firstName = 'Qwerty';
+
+type NotReadOnly<T> = {
+  -readonly [P in keyof T] : T[P]
 };
 
-interface IA<T extends TA> {
-  someProp : T;
-}
-
-let user1 : IA<{id: number, female: boolean}>;
-let user2 : IA<{id: number, name: string, female: boolean}>;
+let user1: NotReadOnly<ReadOnly<IPerson>> = {
+  firstName: 'Igor',
+};

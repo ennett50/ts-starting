@@ -279,3 +279,15 @@ let user: IAccount; // вроде тип и интерфейс различий 
 Ограничения:
  - дефолтные значения
  - проверка на минимальные значения
+ 
+ ```javascript
+type CustomType = Dog extends Animal ? number : string;
+
+let b:CustomType = 1;
+```
+
+Перебор значений по типам
+ 
+```javascript
+[P in keyof T] : T[P]
+```

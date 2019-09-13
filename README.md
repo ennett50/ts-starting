@@ -280,7 +280,7 @@ let user: IAccount; // вроде тип и интерфейс различий 
  - дефолтные значения
  - проверка на минимальные значения
  
- ```javascript
+ ```typescript
 type CustomType = Dog extends Animal ? number : string;
 
 let b:CustomType = 1;
@@ -288,6 +288,19 @@ let b:CustomType = 1;
 
 Перебор значений по типам
  
-```javascript
+```typescript
 [P in keyof T] : T[P]
+```
+
+Литература: 
+1.https://github.com/basarat/typescript-book 
+2. egghead - поверхностные знания
+
+
+Type Query  - ссылаться сам на себя
+```typescript
+export type ListItem = {
+  title: string,
+  items?: ListItem[]
+};
 ```

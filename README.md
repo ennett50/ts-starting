@@ -304,3 +304,22 @@ export type ListItem = {
   items?: ListItem[]
 };
 ```
+
+#Функции
+
+При вызове ts проверяет:
+1. Количество аргументов
+2. Тип аргументов
+3. Возвращаемое значение
+
+```typescript
+function average(a: number, b: number, c: number): string {
+  const avg: number = (a + b + c) / 3;
+  return `Average is ${avg}`;
+}
+```
+
+- Опциональные парметры `?` 
+- es6 параметры по-умолчанию
+- rest параметры `(number | string)[]` массив типов (делать проверку на тип)
+проверку на типы, можно выносить в функции

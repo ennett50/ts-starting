@@ -21,7 +21,7 @@ function average(a: number, b: number, c: number): string {
 
 average(1, 2, 2, 4); // количество
 average(1, 2, '2'); // тип
-let avg:number = average(1, 2, 2); // что возвращает
+let avg: number = average(1, 2, 2); // что возвращает
 
 function average1(a: number, b?: number, c?: number): string {
   if (b === undefined) {
@@ -47,12 +47,12 @@ average2(1);
 average2(1, 2);
 average2(1, 2, 3);
 
-function isString(a: number | string) : a is string { // type guard boolean не сработает
+function isString(a: number | string): a is string { // type guard boolean не сработает
   return typeof a === 'string';
 }
 
 function average3(...arr: (number | string)[]): string {
-  let total:number = 0;
+  let total: number = 0;
   for (const a of arr) {
     if (typeof a === 'string') { // if (isString(a)) {
       total += parseInt(a, 10);
@@ -63,3 +63,25 @@ function average3(...arr: (number | string)[]): string {
   const avg: number = total / arr.length;
   return `Average is ${avg}`;
 }
+
+average3('1', 3);
+average3(1, 3, 5, 6);
+
+function average4(a: string, b: number): string;
+function average4(a: number, b: string, c: number): string;
+function average4(...arr: (number | string)[]): string {
+  let total: number = 0;
+  for (const a of arr) {
+    if (typeof a === 'string') { // if (isString(a)) {
+      total += parseInt(a, 10);
+      continue;
+    }
+    total += a;
+  }
+  const avg: number = total / arr.length;
+  return `Average is ${avg}`;
+}
+
+average4('1', 3);
+average4(3, '3', 5);
+average4(1, 3, 4);

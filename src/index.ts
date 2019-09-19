@@ -14,10 +14,10 @@
 //   parentLi.classList.toggle('menu-open');
 // };
 
-export function average(a: number, b: number, c: number): string {
-  const avg: number = (a + b + c) / 3;
-  return `Average is ${avg}`;
-}
+// export function average(a: number, b: number, c: number): string {
+//   const avg: number = (a + b + c) / 3;
+//   return `Average is ${avg}`;
+// }
 
 // average(1, 2, 2, 4); // количество
 // average(1, 2, '2'); // тип
@@ -85,3 +85,20 @@ export function average(a: number, b: number, c: number): string {
 // average4('1', 3);
 // average4(3, '3', 5);
 // average4(1, 3, 4);
+
+class Point {
+  // public x!: number;
+  // public y!: number;
+
+  public constructor(
+    public x: number,
+    public y:number,
+  ) {
+    this.x = x;
+    this.y = y;
+  }
+
+  public sum(): number {
+    return this.x + this.y;
+  }
+}

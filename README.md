@@ -325,3 +325,29 @@ function average(a: number, b: number, c: number): string {
 проверку на типы, можно выносить в функции
 - перегрузка - подход, чтобы задать более гибкую сигнатуру, в конце сигнатуру имплементацию. 
 она обобщает все предыдущее. Более гибка типизация. Сначала проверит. Более узкая типизация
+
+#Тесты
+
+установить зависимости 
+```
+npm add karma karma-chrome-launcher jasmine-core  @types/jasmine karma-jasmine karma-typescript -D
+
+```
+
+Добавить `karma.conf.js`, `index.specs.ts`
+
+```typescript
+import { average } from './index';
+
+describe('test some function', () => {
+  it('test average', () => {
+    expect(average(1, 2, 3)).toEqual('Average is 2');
+  });
+});
+```
+
+в `package.json` добавить `"test" : "karma start"` (успешный и неуспешный)
+
+сгенирироваля отчет в папку `coverage`
+
+В ts нет проблем с окружающим миром, все валидно, все тестируется.

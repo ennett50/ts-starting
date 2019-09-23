@@ -86,8 +86,16 @@
 // average4(3, '3', 5);
 // average4(1, 3, 4);
 
+interface IX {
+  x: number;
+}
+
+interface ISum {
+  sum(): number;
+}
+
 class BasePoint {
-  public x!: number;
+  public readonly x!: number;
   protected y!:number;
   private z!:number;
 }
@@ -95,7 +103,7 @@ class BasePoint {
 let bP:BasePoint = new BasePoint(); // только публичное свойство
 // bP.x
 
-class Point extends BasePoint{
+class Point extends BasePoint implements IX, ISum {
   // public x!: number;
   // public y!: number;
 

@@ -395,7 +395,12 @@ class BasePoint {
 }
 ```
 
+`readonly` - присваивание вначале или в конструктуре, в другом месте нет
+
 `let bP:BasePoint = new BasePoint(); // только публичное свойство`
 `// bP.x`
 
 Но в конструкторе `Point` видно как публичный `x` так и `protected` `y`
+
+Можно много интерфейсов имплементировать 
+`class Point extends BasePoint implements IX, ISum {`

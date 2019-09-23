@@ -355,8 +355,8 @@ describe('test some function', () => {
 #Классы
 
 strictPropertyInitialization 
-Для классов , чтобы не создавать хрдден классы, хорошая практива обяъвлять 
-в паблике свойства и присваивать значение либо здесь либо в конструкторе
+Для классов , чтобы не создавать хидден классы, хорошая практика объявлять 
+в паблике свойства и присваивать значение либо здесь, либо в конструкторе
 
 `public y!: number;`
 
@@ -386,3 +386,16 @@ class Point {
 `public constructor(public x: number, public y:number) {`
 
 ##Наследование
+
+```typescript
+class BasePoint {
+  public x!: number;
+  protected y!:number;
+  private z!:number; // только внутри самого класса
+}
+```
+
+`let bP:BasePoint = new BasePoint(); // только публичное свойство`
+`// bP.x`
+
+Но в конструкторе `Point` видно как публичный `x` так и `protected` `y`

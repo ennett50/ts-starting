@@ -86,16 +86,23 @@
 // average4(3, '3', 5);
 // average4(1, 3, 4);
 
-class Point {
+class BasePoint {
+  public x!: number;
+  protected y!:number;
+  private z!:number;
+}
+
+let bP:BasePoint = new BasePoint(); // только публичное свойство
+// bP.x
+
+class Point extends BasePoint{
   // public x!: number;
   // public y!: number;
 
-  public constructor(
-    public x: number,
-    public y:number,
-  ) {
-    this.x = x;
-    this.y = y;
+  public constructor() {
+    super();
+    // this.x
+    // this.y
   }
 
   public sum(): number {

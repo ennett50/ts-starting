@@ -404,3 +404,24 @@ class BasePoint {
 
 Можно много интерфейсов имплементировать 
 `class Point extends BasePoint implements IX, ISum {`
+
+##Пример Singleton
+```typescript
+class Singleton {
+  private static _instance: Singleton;
+
+  private constructor() {} // запрещен вызов снаружи
+
+  public static getInstance(): Singleton {
+    if (!Singleton._instance) {
+      Singleton._instance = new Singleton();
+    }
+    return Singleton._instance;
+  }
+}
+
+const inst = new Singleton(); // только внутри самого себя
+```
+
+Абстарктные классы слово `abstract` - выступает контрактом и носителем каких-то свойств. 
+Он существует, но его нельзя вызвать. Для хранения дефолтных значений

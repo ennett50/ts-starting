@@ -86,34 +86,51 @@
 // average4(3, '3', 5);
 // average4(1, 3, 4);
 
-interface IX {
-  x: number;
-}
+// interface IX {
+//   x: number;
+// }
+//
+// interface ISum {
+//   sum(): number;
+// }
+//
+// class BasePoint {
+//   public readonly x!: number;
+//   protected y!:number;
+//   private z!:number;
+// }
+//
+// let bP:BasePoint = new BasePoint(); // только публичное свойство
+// // bP.x
+//
+// class Point extends BasePoint implements IX, ISum {
+//   // public x!: number;
+//   // public y!: number;
+//
+//   public constructor() {
+//     super();
+//     // this.x
+//     // this.y
+//   }
+//
+//   public sum(): number {
+//     return this.x + this.y;
+//   }
+// }
 
-interface ISum {
-  sum(): number;
-}
 
-class BasePoint {
-  public readonly x!: number;
-  protected y!:number;
-  private z!:number;
-}
+class Singleton {
+  private static _instance: Singleton;
 
-let bP:BasePoint = new BasePoint(); // только публичное свойство
-// bP.x
+  private constructor() {} // запрещен вызов снаружи
 
-class Point extends BasePoint implements IX, ISum {
-  // public x!: number;
-  // public y!: number;
-
-  public constructor() {
-    super();
-    // this.x
-    // this.y
+  public static getInstance(): Singleton {
+    if (!Singleton._instance) {
+      Singleton._instance = new Singleton();
+    }
+    return Singleton._instance;
   }
-
-  public sum(): number {
-    return this.x + this.y;
-  }
 }
+
+const inst = new Singleton(); // только внутри самого себя
+class a extends Singleton{}

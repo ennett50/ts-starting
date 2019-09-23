@@ -425,3 +425,18 @@ const inst = new Singleton(); // только внутри самого себя
 
 Абстарктные классы слово `abstract` - выступает контрактом и носителем каких-то свойств. 
 Он существует, но его нельзя вызвать. Для хранения дефолтных значений
+
+#Примесь/миксины - подмешать одно, два и тп исходных свойств
+
+Добавлять timestamp
+
+```typescript
+export type Constructable = new (...args: any[]) => {};
+// тип конструтора, то что может быть иницилизировано с new
+
+export function Timestamped<BC extends Constructable>(Base:BC) {
+  return class extends Base {
+    public timestamp: Date = new Date();
+  }
+}
+```

@@ -119,18 +119,49 @@
 // }
 
 
-class Singleton {
-  private static _instance: Singleton;
+// class Singleton {
+//   private static _instance: Singleton;
+//
+//   private constructor() {} // запрещен вызов снаружи
+//
+//   public static getInstance(): Singleton {
+//     if (!Singleton._instance) {
+//       Singleton._instance = new Singleton();
+//     }
+//     return Singleton._instance;
+//   }
+// }
+//
+// const inst = new Singleton(); // только внутри самого себя
+// class a extends Singleton{}
 
-  private constructor() {} // запрещен вызов снаружи
+export type Contstructable = new (...args: any[]) => {};
 
-  public static getInstance(): Singleton {
-    if (!Singleton._instance) {
-      Singleton._instance = new Singleton();
-    }
-    return Singleton._instance;
+export function Timestamped<BC extends Contstructable>(Base: BC): any {
+  return class extends Base {
+    public timestamp: Date = new Date();
+  };
+}
+
+export function Tagged<BC extends Contstructable>(Base: BC): any {
+  return class extends Base {
+    public tagged: string = 'my_custom_tag';
+  };
+}
+
+class Point {
+  public constructor(
+    public x: number,
+    public y: number,
+  ) {
   }
 }
 
-const inst = new Singleton(); // только внутри самого себя
-class a extends Singleton{}
+class SpecialPoint extends Tagged(Timestamped(Point)) {
+  public constructor(x: number, y: number, public z: number) {
+    super(x, y);
+  }
+}
+
+const point: SpecialPoint = new SpecialPoint(1, 2, 5);
+point.timestamp.getDate();

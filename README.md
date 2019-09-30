@@ -457,5 +457,11 @@ export function Timestamped<BC extends Constructable>(Base:BC) {
 Декоратор метода (для примера debounce - отлиженный вызов):
 `@debounce` - собака и имя функции + подключить в конфиге ts experimental options
 
-чтобы это не было
+чтобы это не было 
 https://www.npmjs.com/package/reflect-metadata
+
+```typescript
+  console.log(Reflect.getMetadata('design:type', target, key));
+  console.log(Reflect.getMetadata('design:paramtypes', target, key));
+  console.log(Reflect.getMetadata('design:returntype', target, key));
+```

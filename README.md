@@ -465,3 +465,21 @@ https://www.npmjs.com/package/reflect-metadata
   console.log(Reflect.getMetadata('design:paramtypes', target, key));
   console.log(Reflect.getMetadata('design:returntype', target, key));
 ```
+
+# Пример
+Для поддержки `jsx` включаем в конфиге опцию.
+
+`"jsx": "react",`
+  в вебпаке тоже добавить првоерку на `tsx `
+  
+```json
+resolve: {
+		extensions: ['.ts', '.tsx', '.js', '.json']
+	},
+	module: {
+		rules: [
+			{test: /\.tsx?$/, loader: 'ts-loader'},
+			{test: /\.css$/, use: ['style-loader', 'css-loader']}
+		]
+	},
+```

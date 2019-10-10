@@ -1,43 +1,46 @@
 {
-  "name": "ts-starting",
+  "name": "ts30032019",
   "version": "1.0.0",
-  "description": "- человеческий фактор  - нужен инстурмент, чтобы облегчить проверку",
-  "main": "1-ts-check.js",
+  "description": "",
+  "main": "old/1-ts-check.ts",
   "scripts": {
-    "start": "webpack-dev-server",
-    "test": "karma start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ennett50/ts-starting.git"
+    "test": "karma start",
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ennett50/ts-starting/issues"
-  },
-  "homepage": "https://github.com/ennett50/ts-starting#readme",
   "devDependencies": {
-    "@types/jasmine": "^3.4.0",
-    "@types/jquery": "^3.3.30",
-    "jasmine-core": "^3.4.0",
-    "karma": "^4.3.0",
-    "karma-chrome-launcher": "^3.1.0",
+    "@types/jasmine": "^3.3.12",
+    "@types/jquery": "^3.3.29",
+    "@types/react": "^16.8.10",
+    "@types/react-dom": "^16.8.3",
+    "@types/react-redux": "^7.0.6",
+    "@types/redux": "^3.6.0",
+    "css-loader": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "jasmine-core": "^3.3.0",
+    "karma": "^4.0.1",
+    "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^2.0.1",
-    "karma-typescript": "^4.1.1",
-    "tslint": "^5.15.0",
-    "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.4.2"
+    "karma-typescript": "3.0.13",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.3",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
+    "typescript": "^3.4.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
-    "css-loader": "^3.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^1.0.0",
-    "ts-loader": "^6.0.4",
-    "ts-node": "^8.0.3",
-    "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "axios": "^0.18.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "redux-observable": "^1.1.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.4.0"
   }
 }
